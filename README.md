@@ -1,6 +1,6 @@
 # Hospital Patient Management System (HPMS)
 
-ICT921 – Applied Software Engineering, Assessment 3 (Semester 1, 2026).
+
 
 A full-stack web application that digitises patient registration, appointment
 scheduling, electronic health records (EHR), billing, and reporting for a
