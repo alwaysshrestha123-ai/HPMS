@@ -29,75 +29,8 @@ You only need three things installed locally:
 | npm | ≥ 10.x (ships with Node) | `npm -v` |
 | PostgreSQL | ≥ 14.x | `psql --version` |
 
-Install Postgres via your OS package manager, Postgres.app (macOS), or Docker
-(`docker run --name hpms-pg -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres:15`).
 
----
-
-## 3. One-time setup
-
-### 3.1  Create the database
-
-```bash
-# Connect to your local Postgres server
-psql -U postgres
-
-# In the psql prompt:
-CREATE DATABASE hpms_db;
-\q
-```
-
-### 3.2  Configure the backend
-
-```bash
-cd backend
-cp .env.example .env
-# Edit .env if your DB user/password isn't postgres/postgres
-npm install
-npm run init-db      # creates tables + seeds demo users
-```
-
-You should see:
-
-```
-✅  Database initialised successfully.
-Seed accounts (password = Password123!): admin@hpms.local …
-```
-
-### 3.3  Install the frontend
-
-```bash
-cd ../frontend
-npm install
-```
-
----
-
-## 4. Run the system
-
-Open **two** terminals.
-
-**Terminal 1 — backend API (port 5000):**
-
-```bash
-cd backend
-npm run dev          # uses nodemon; or npm start for plain node
-```
-
-**Terminal 2 — frontend dev server (port 5173):**
-
-```bash
-cd frontend
-npm run dev
-```
-
-Open <http://localhost:5173> in your browser. Sign in with any of the demo
-accounts shown on the login screen. Password for all of them is
-`Password123!`.
-
----
-
-## 5. Demo accounts
+ Demo accounts
 
 | Role | Email | What you can do |
 |---|---|---|
@@ -115,17 +48,6 @@ login screen.
 
 ---
 
-## 6. Run the test suite
-
-```bash
-cd backend
-npm test
-```
-
-Runs Jest + Supertest against the running database. The seed must be in place
-(`npm run init-db`).
-
----
 
 ## 7. Project layout
 
@@ -246,4 +168,4 @@ inclusion.
 
 ---
 
-© 2026 ICT921 Group Project
+© 2026 WEB development  Group Project - 

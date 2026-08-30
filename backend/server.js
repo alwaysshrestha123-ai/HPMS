@@ -40,7 +40,8 @@ app.use('/api/reports',      reportRoutes);
 /* ---------- 404 + central error handler ---------- */
 app.use((req, res) => res.status(404).json({ message: `Route ${req.originalUrl} not found.` }));
 
-// eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line no-unused-vars 
+//changed server.js
 app.use((err, _req, res, _next) => {
   // eslint-disable-next-line no-console
   console.error('Unhandled error:', err);
