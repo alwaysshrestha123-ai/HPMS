@@ -8,7 +8,7 @@ architecture pattern and Agile (Scrum) methodology.
 
 ---
 
-## 1. Architecture at a glance
+ Architecture at a glance
 
 | Layer | Technology | Responsibility |aq
 |---|---|---|
@@ -19,15 +19,7 @@ architecture pattern and Agile (Scrum) methodology.
 
 ---
 
-## 2. Prerequisites
 
-You only need three things installed locally:
-
-| Tool | Version | Check with |
-|---|---|---|
-| Node.js | ≥ 20.x | `node -v` |
-| npm | ≥ 10.x (ships with Node) | `npm -v` |
-| PostgreSQL | ≥ 14.x | `psql --version` |
 
 
  Demo accounts
@@ -48,8 +40,7 @@ login screen.
 
 ---
 
-
-## 7. Project layout
+Project layout
 
 ```
 hpms-project/
@@ -100,7 +91,7 @@ hpms-project/
 
 ---
 
-## 8. API summary
+API summary
 
 | Method | Endpoint | Roles | Purpose |
 |---|---|---|---|
@@ -123,8 +114,7 @@ hpms-project/
 | GET    | /api/reports/dashboard  | ADMIN   | KPIs |
 
 ---
-
-## 9. Security features implemented
+Security features implemented
 
 - **bcrypt** password hashing (cost factor 10)
 - **JWT** stateless authentication with 2-hour token expiry
@@ -143,7 +133,7 @@ hpms-project/
 
 ---
 
-## 10. Troubleshooting
+ Troubleshooting
 
 | Symptom | Fix |
 |---|---|
@@ -156,16 +146,6 @@ hpms-project/
 
 ---
 
-## 11. Acknowledgement of AI assistance
 
-In line with the unit's AI Use Policy, generative AI tools (Claude, ChatGPT)
-were used for: scaffolding boilerplate (`server.js`, route skeletons),
-syntax/API examples, and suggesting test-case ideas. All architectural
-decisions, schema design, security choices, integration, manual testing,
-debugging, and deployment were performed by the team. Every AI-suggested
-snippet was reviewed, modified, and verified by a team member before
-inclusion.
-
----
 
 © 2026 WEB development  Group Project - 
