@@ -21,6 +21,8 @@ pool.on('error', (err) => {
   process.exit(-1);
 });
 
+//datbase updated
+
 module.exports = {
   query: (text, params) => pool.query(text, params),
   getClient: () => pool.connect(),
