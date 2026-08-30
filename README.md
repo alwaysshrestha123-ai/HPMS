@@ -1,8 +1,4 @@
-
-<<<<<<< HEAD
-=======
-
->>>>>>> c7071d1f4ce62a9e5db8737ee9b58bb9074bcdf3
+README file
 
 A full-stack web application that digitises patient registration, appointment
 scheduling, electronic health records (EHR), billing, and reporting for a
