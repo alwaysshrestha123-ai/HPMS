@@ -1,6 +1,4 @@
-# Hospital Patient Management System (HPMS)
 
-ICT921 – Applied Software Engineering, Assessment 3 (Semester 1, 2026).
 
 A full-stack web application that digitises patient registration, appointment
 scheduling, electronic health records (EHR), billing, and reporting for a
@@ -12,7 +10,7 @@ architecture pattern and Agile (Scrum) methodology.
 
 ## 1. Architecture at a glance
 
-| Layer | Technology | Responsibility |
+| Layer | Technology | Responsibility |aq
 |---|---|---|
 | Presentation | React 18 SPA, Tailwind CSS, Vite | UI, form validation, role-based views |
 | API / Business | Node.js 20, Express.js 4 | Business logic, authentication, API routing, middleware |
