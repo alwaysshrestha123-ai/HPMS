@@ -8,30 +8,27 @@ architecture pattern and Agile (Scrum) methodology.
 
 ---
 
- Architecture at a glance
+Architecture at a glance
 
-| Layer | Technology | Responsibility |aq
-|---|---|---|
-| Presentation | React 18 SPA, Tailwind CSS, Vite | UI, form validation, role-based views |
-| API / Business | Node.js 20, Express.js 4 | Business logic, authentication, API routing, middleware |
-| Data | PostgreSQL 15 | Persistent storage, transactional integrity |
-| Cross-cutting | JWT, bcrypt, Helmet, express-rate-limit | Security |
+| Layer          | Technology                              | Responsibility                                          | aq  |
+| -------------- | --------------------------------------- | ------------------------------------------------------- | --- |
+| Presentation   | React 18 SPA, Tailwind CSS, Vite        | UI, form validation, role-based views                   |
+| API / Business | Node.js 20, Express.js 4                | Business logic, authentication, API routing, middleware |
+| Data           | PostgreSQL 15                           | Persistent storage, transactional integrity             |
+| Cross-cutting  | JWT, bcrypt, Helmet, express-rate-limit | Security                                                |
 
 ---
 
+Demo accounts
 
-
-
- Demo accounts
-
-| Role | Email | What you can do |
-|---|---|---|
-| ADMIN   | admin@hpms.local       | Dashboard, view all data, issue invoices |
-| DOCTOR  | sarah.chen@hpms.local  | View own appointments, add EHR entries |
-| DOCTOR  | raj.patel@hpms.local   | View own appointments, add EHR entries |
-| NURSE   | emma.wilson@hpms.local | View patients, issue invoices |
-| PATIENT | john.smith@hpms.local  | Book appointments, view own EHR, pay bills |
-| PATIENT | mary.johnson@hpms.local| Book appointments, view own EHR, pay bills |
+| Role    | Email                   | What you can do                            |
+| ------- | ----------------------- | ------------------------------------------ |
+| ADMIN   | admin@hpms.local        | Dashboard, view all data, issue invoices   |
+| DOCTOR  | sarah.chen@hpms.local   | View own appointments, add EHR entries     |
+| DOCTOR  | raj.patel@hpms.local    | View own appointments, add EHR entries     |
+| NURSE   | emma.wilson@hpms.local  | View patients, issue invoices              |
+| PATIENT | john.smith@hpms.local   | Book appointments, view own EHR, pay bills |
+| PATIENT | mary.johnson@hpms.local | Book appointments, view own EHR, pay bills |
 
 All passwords: `Password123!`.
 
@@ -93,27 +90,28 @@ hpms-project/
 
 API summary
 
-| Method | Endpoint | Roles | Purpose |
-|---|---|---|---|
-| POST   | /api/auth/register      | public  | Patient self-registration |
-| POST   | /api/auth/login         | public  | Returns JWT |
-| GET    | /api/users/me           | any     | Current user profile |
-| PUT    | /api/users/me           | any     | Update own profile |
-| GET    | /api/users/patients     | staff   | List patients |
-| GET    | /api/users/doctors      | any     | Doctor directory for booking |
-| GET    | /api/appointments       | any     | Role-aware listing |
-| POST   | /api/appointments       | PATIENT | Book appointment |
-| PATCH  | /api/appointments/:id/status | DOCTOR/ADMIN | Mark complete/cancel |
-| DELETE | /api/appointments/:id   | PATIENT/ADMIN | Cancel |
-| GET    | /api/ehr/me             | PATIENT | Own records |
-| GET    | /api/ehr/patient/:id    | DOCTOR/NURSE/ADMIN | Patient records |
-| POST   | /api/ehr                | DOCTOR  | Add new EHR entry |
-| GET    | /api/billing            | any     | Role-aware listing |
-| POST   | /api/billing            | ADMIN/NURSE | Issue invoice |
-| PATCH  | /api/billing/:id/pay    | PATIENT | Mark own bill paid |
-| GET    | /api/reports/dashboard  | ADMIN   | KPIs |
+| Method | Endpoint                     | Roles              | Purpose                      |
+| ------ | ---------------------------- | ------------------ | ---------------------------- |
+| POST   | /api/auth/register           | public             | Patient self-registration    |
+| POST   | /api/auth/login              | public             | Returns JWT                  |
+| GET    | /api/users/me                | any                | Current user profile         |
+| PUT    | /api/users/me                | any                | Update own profile           |
+| GET    | /api/users/patients          | staff              | List patients                |
+| GET    | /api/users/doctors           | any                | Doctor directory for booking |
+| GET    | /api/appointments            | any                | Role-aware listing           |
+| POST   | /api/appointments            | PATIENT            | Book appointment             |
+| PATCH  | /api/appointments/:id/status | DOCTOR/ADMIN       | Mark complete/cancel         |
+| DELETE | /api/appointments/:id        | PATIENT/ADMIN      | Cancel                       |
+| GET    | /api/ehr/me                  | PATIENT            | Own records                  |
+| GET    | /api/ehr/patient/:id         | DOCTOR/NURSE/ADMIN | Patient records              |
+| POST   | /api/ehr                     | DOCTOR             | Add new EHR entry            |
+| GET    | /api/billing                 | any                | Role-aware listing           |
+| POST   | /api/billing                 | ADMIN/NURSE        | Issue invoice                |
+| PATCH  | /api/billing/:id/pay         | PATIENT            | Mark own bill paid           |
+| GET    | /api/reports/dashboard       | ADMIN              | KPIs                         |
 
 ---
+
 Security features implemented
 
 - **bcrypt** password hashing (cost factor 10)
@@ -133,19 +131,17 @@ Security features implemented
 
 ---
 
- Troubleshooting
+Troubleshooting
 
-| Symptom | Fix |
-|---|---|
-| `ECONNREFUSED` on `localhost:5432` | Postgres isn't running. Start it. |
-| `password authentication failed` | Edit `backend/.env` to match your Postgres credentials. |
-| `relation "users" does not exist` | Run `npm run init-db` in the backend folder. |
-| Frontend shows 401 immediately | Token expired; log out and back in. |
-| `EADDRINUSE` on port 5000 / 5173 | Another process is using the port. Stop it or change the port. |
-| Tailwind classes not applying | Run `npm run dev` in the frontend folder (Vite needs to rebuild). |
+| Symptom                            | Fix                                                               |
+| ---------------------------------- | ----------------------------------------------------------------- |
+| `ECONNREFUSED` on `localhost:5432` | Postgres isn't running. Start it.                                 |
+| `password authentication failed`   | Edit `backend/.env` to match your Postgres credentials.           |
+| `relation "users" does not exist`  | Run `npm run init-db` in the backend folder.                      |
+| Frontend shows 401 immediately     | Token expired; log out and back in.                               |
+| `EADDRINUSE` on port 5000 / 5173   | Another process is using the port. Stop it or change the port.    |
+| Tailwind classes not applying      | Run `npm run dev` in the frontend folder (Vite needs to rebuild). |
 
 ---
 
-
-
-© 2026 WEB development  Group Project - 
+© 2026 WEB development Group Project
